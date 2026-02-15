@@ -28,10 +28,12 @@ function mapToVenue(row: any): Venue {
 // GET /api/venues - returns list of VenueSummary
 router.get('/venues', async (req, res) => {
     try {
+      console.log('Received request for all venues');
         if (!pool) throw new Error('No DB pool');
         const q = `SELECT id, name, photo_url FROM Venues`;
         const { rows } = await pool.query(q);
         const summaries = rows.map(mapToSummary);
+        console.log(`Fetched ${summaries.length} venues from DB`);
         return res.json(summaries);
     } catch (err) {
         console.warn('DB query failed, falling back to empty list or mock:', err);

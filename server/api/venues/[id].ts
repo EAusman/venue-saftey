@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { pool } from '../../db';
-import type { Venue } from '../../../shared/venueModels';
+import { pool } from '../db.js';
+import type { Venue } from '../../venueModels.js';
 
 function mapToVenue(row: any): Venue {
     const safety = row.safety_features ?? row.safetyFeatures ?? row.safety ?? [];

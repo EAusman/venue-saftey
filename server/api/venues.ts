@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { pool } from '../../db';
+import { pool } from '../db';
 import type { VenueSummary } from '../../../shared/venueModels';
 
 function mapToSummary(row: any): VenueSummary {
